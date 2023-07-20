@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<!-- Basic Page Needs
+	================================================== -->
+	<title>Learn Learnosity - {{ title }}</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="{% static 'img/favicons/favicon.ico' %}">
+	<link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicons/favicon-120.png' %}">
+	<link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicons/favicon-152.png' %}">
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+{% include 'includes/styles.html' %}
+</head>
+<body>
+		{% include 'includes/header-nav.html' %}
+		<div class="site-wrapper">
+
+			<div id="js-preloader-overlay" class="preloader-overlay">
+				<div id="js-preloader" class="preloader"></div>
+			</div>
+	
+			<!-- Overlay -->
+			<div class="site-overlay"></div>
+			<!-- Overlay / End -->
+			{% block main %}
+			{% endblock main %}
+</div>
+	{% include 'includes/scripts.html' %}
+</body>
+</html> 

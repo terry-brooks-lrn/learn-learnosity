@@ -1,0 +1,49 @@
+{% load static %}
+<header id="header" class="header">
+		
+	<!-- Logo - Image Based -->
+	<div class="header__logo header__logo--img">
+		<a href="index.html"><img src="{% static '/img/learnosity.png' %}" alt="Escapium"></a>
+	</div>
+	<!-- Logo - Image Based / End -->
+
+	<!-- Main Navigation -->
+	<nav class="main-nav">
+		<ul class="main-nav__list">
+			<li class="active"><a href="{% url 'home' %}">home</a></li>
+			<li class=""><a href="page-about.html">about</a></li>
+			<li class=""><a href="#">assessments</a>
+				<ul class="main-nav__sub">
+					<li class=""><a href="#">Accessing Content </a></li>
+					<li class=""><a href="{% url 'items-api-assessment' %}">Creating Content <span class="badge badge-warning">Coming Soon</span></a></li>
+					<li class=""><a href="features-pricing.html">Delivering Assessments <span class="badge badge-warning">Coming Soon</span></a></li>
+					<li class=""><a href="features-404.html">Processing Feedback <span class="badge badge-warning">Coming Soon</span></a></li>
+					<li class=""><a href="features-faqs.html">Advanced Implementions <span class="badge badge-warning">Coming Soon</span></a></li>
+				</ul>
+			</li>
+			<li class=""><a href="#">content</a>
+				<ul class="main-nav__sub">
+					<li class=""><a href="https://help.learnosity.com/hc/en-us/articles/360000756098-Items-API" target="_blank" >Items API</a></li>
+					<li class=""><a href="https://help.learnosity.com/hc/en-us/categories/360000105358-Learnosity-Author" target="_blank">Author API</a></li>
+					<li class=""><a href="https://help.learnosity.com/hc/en-us/categories/360000101737-Learnosity-Assessments" target="_blank">Assessment API</a></li>
+					<li class=""><a href="">Data API</a></li>
+					<li class=""><a href="">General Knowledge Base</a></li>
+				</ul>
+			</li>
+		</ul>
+
+	</nav>
+	<!-- Main Navigation / End -->
+
+	<div class="header__spacer"></div>
+				<!-- Secondary Navigation / End -->
+
+	<!-- Mobile Burger Menu Icon -->
+	<a id="header-mobile__toggle" class="burger-menu-icon">
+		<span class="burger-menu-icon__line"></span>
+		<span class="burger-menu-icon__line"></span>
+		<span class="burger-menu-icon__line"></span>
+	</a>
+	<!-- Mobile Burger Menu Icon / End -->
+
+</header>
