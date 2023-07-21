@@ -1,10 +1,11 @@
 from learnosity_sdk.utils import Uuid
-from .. import config  # Load consumer key and secret from config.py
-# Include web server and Jinja templating libraries.
+from learnosity_sdk.request import Init
+
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from jinja2 import Template
 from django.conf import settings
 
+from icecream import ic
 # - - - - - - Section 1: Learnosity server-side configuration - - - - - - #
 
 # Generate the user ID and session ID as UUIDs.
@@ -255,7 +256,7 @@ report_request = {
 }
 question_editor_request = {
     "configuration" : {
-       "consumer_key": config.consumer_key,
+       "consumer_key": settings.CONSUMER_KEY,
     },
     "widget_conversion": True,
     "ui" : {
@@ -300,6 +301,7 @@ generated_request_Author = initAuthor.generate()
 generated_request_Reports = initReports.generate()
 generated_request_QuestionEditor = initQuestionEditor.generate()
 
+ic(generated_request_Items)
 # - - - - - - Section 2: your web page configuration - - - - - -#
 # Set up the HTML page template, for serving to the built-in Python web server
 class LearnosityServer(BaseHTTPRequestHandler):

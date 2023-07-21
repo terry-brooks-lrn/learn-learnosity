@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "icecream",
     "templates",
     "debug_toolbar",
+    "learnosity_sdk",
 ]
 
 MIDDLEWARE = [
@@ -140,7 +141,7 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/'),    os.path.join(BASE_DIR, 'static','vendor'),
 ]
-STATIC_ROOT =  "/staticfiles/"
+STATIC_ROOT =  "staticfiles/"
 # STORAGES = {
 #     "staticfiles": {
 #         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",

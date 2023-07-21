@@ -3,7 +3,7 @@
 		
 	<!-- Logo - Image Based -->
 	<div class="header__logo header__logo--img">
-		<a href="index.html"><img src="{% static '/img/learnosity.png' %}" alt="Escapium"></a>
+		<a href="index.html"><img src="{% static '/img/learnosity.png' %}" alt="learnosity-logo"></a>
 	</div>
 	<!-- Logo - Image Based / End -->
 
@@ -11,14 +11,14 @@
 	<nav class="main-nav">
 		<ul class="main-nav__list">
 			<li class="active"><a href="{% url 'home' %}">home</a></li>
-			<li class=""><a href="page-about.html">about</a></li>
+			<li class=""><a href="#">about</a></li>
 			<li class=""><a href="#">assessments</a>
 				<ul class="main-nav__sub">
-					<li class=""><a href="#">Accessing Content </a></li>
-					<li class=""><a href="{% url 'items-api-assessment' %}">Creating Content <span class="badge badge-warning">Coming Soon</span></a></li>
-					<li class=""><a href="features-pricing.html">Delivering Assessments <span class="badge badge-warning">Coming Soon</span></a></li>
-					<li class=""><a href="features-404.html">Processing Feedback <span class="badge badge-warning">Coming Soon</span></a></li>
-					<li class=""><a href="features-faqs.html">Advanced Implementions <span class="badge badge-warning">Coming Soon</span></a></li>
+					<li class=""><a href="{% url 'items-api-assessment' %}">Accessing Content </a></li>
+					<li class=""><a href="#">Creating Content <span class="badge badge-warning">Coming Soon</span></a></li>
+					<li class=""><a href="#">Delivering Assessments <span class="badge badge-warning">Coming Soon</span></a></li>
+					<li class=""><a href="#">Processing Feedback <span class="badge badge-warning">Coming Soon</span></a></li>
+					<li class=""><a href="#">Advanced Implementions <span class="badge badge-warning">Coming Soon</span></a></li>
 				</ul>
 			</li>
 			<li class=""><a href="#">content</a>
