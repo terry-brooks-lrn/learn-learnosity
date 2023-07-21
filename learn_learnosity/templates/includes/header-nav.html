@@ -11,7 +11,7 @@
 	<nav class="main-nav">
 		<ul class="main-nav__list">
 			<li class="active"><a href="{% url 'home' %}">home</a></li>
-			<li class=""><a href="#">about</a></li>
+			<li class=""><a href="{% url 'about' %}">about</a></li>
 			<li class=""><a href="#">assessments</a>
 				<ul class="main-nav__sub">
 					<li class=""><a href="{% url 'items-api-assessment' %}">Accessing Content </a></li>
@@ -20,7 +20,7 @@
 					<li class=""><a href="#">Processing Feedback <span class="badge badge-warning">Coming Soon</span></a></li>
 					<li class=""><a href="#">Advanced Implementions <span class="badge badge-warning">Coming Soon</span></a></li>
 				</ul>
-			</li>
+			</li>``
 			<li class=""><a href="#">content</a>
 				<ul class="main-nav__sub">
 					<li class=""><a href="https://help.learnosity.com/hc/en-us/articles/360000756098-Items-API" target="_blank" >Items API</a></li>

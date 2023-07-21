@@ -4,8 +4,10 @@ from learnosity_sdk.request import Init
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from jinja2 import Template
 from django.conf import settings
-
+import os
 from icecream import ic
+from dotenv import load_dotenv
+
 # - - - - - - Section 1: Learnosity server-side configuration - - - - - - #
 
 # Generate the user ID and session ID as UUIDs.
@@ -14,13 +16,13 @@ session_id = Uuid.generate()
 
 
 # Set variables for the web server.
-host = "localhost"
+host = "127.0.0.1"
 port = 8000
 
 
 security = {
     "user_id": "abc",
-    "consumer_key": settings.CONSUMER_KEY,
+    "consumer_key": "CGas8FYgMM4NdyXQ",
 
     # Change to the domain used in the browser, e.g. 127.0.0.1, learnosity.com
     "domain": host,
@@ -28,11 +30,11 @@ security = {
 
 # Items API configuration parameters.
 items_request = {
-    # Unique student identifier, a UUID generated above.
+       # Unique student identifier, a UUID generated above.
     "user_id": user_id,
     # A reference of the Activity to retrieve from the Item bank, defining
     # which Items will be served in this assessment.
-    "activity_template_id": "quickstart_examples_activity_template_001",
+    "activity_template_id": "terry",
     # Uniquely identifies this specific assessment attempt session for
     # save/resume, data retrieval and reporting purposes. A UUID generated above.
     "session_id": session_id,
@@ -50,7 +52,6 @@ items_request = {
     # Can be set to `initial, `resume` or `review`. Optional. Default = `initial`.
     "state": "initial"
 }
-
 # Questions API configuration parameters.
 questions_request = {
     "id": "f0001",
@@ -270,27 +271,27 @@ question_editor_request = {
 
 # Set up Learnosity initialization data.
 initItems = Init(
-    "items", security, settings.CONSUMER_SECRET,
+    "items", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
     request = items_request
 )
 
 initQuestions = Init(
-    "questions", security, settings.CONSUMER_SECRET,
+    "questions", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
     request = questions_request
 )
 
 initAuthor = Init(
-    "author", security, settings.CONSUMER_SECRET,
+    "author", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
     request = author_request
 )
 
 initReports = Init(
-    "reports", security, settings.CONSUMER_SECRET,
+    "reports", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
     request = report_request
 )
 
 initQuestionEditor = Init(
-    "questions", security, settings.CONSUMER_SECRET,
+    "questions", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
     request = question_editor_request
 )
 

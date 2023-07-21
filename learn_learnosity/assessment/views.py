@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from django.conf import settings
 from assessment.learnosity import generated_request_Items
@@ -12,6 +13,7 @@ from assessment.learnosity import generated_request_Items
 
 def itemsAPIAssessment(request):
     context = dict()
-    context['generated_request'] = generated_request_Items
     context['title'] = "Items API Assessment"
-    return render(request, 'items-api-assessment.html', context )
+    context['name'] = "Learn about Learnosity Example"
+    context['generated_request'] = generated_request_Items
+    return render(request, 'assessmentBase.html', context)

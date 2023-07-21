@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include 'includes/styles.html' %}
+</head>
+<body>
+	<div class="site-wrapper">
+
+		<div id="js-preloader-overlay" class="preloader-overlay">
+			<div id="js-preloader" class="preloader"></div>
+		</div>
+	{% include 'includes/header-nav.html' %}
+		<!-- Main Slider -->
+		<main class="site-content container">
+			<div class="row">
+			{% comment %} <h1>{{ name }}</h1> {% endcomment %}
+			<!-- Items API will render the assessment app into this div. -->
+			<div id="assessment-container" class="col-12">
+			<div id="learnosity_assess"></div>
+			</div>
+			<!-- Initiate Items API  -->
+			<script src="https://items.learnosity.com?latest-lts/"></script>
+			<script>
+				var itemsApp = LearnosityItems.init( {{ generated_request|safe }} );
+			</script>
+	</main>
+		{% include 'includes/scripts.html' %}
+	</div>
+</body>
+</html> 
+	

@@ -25,5 +25,6 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path("control-center/", admin.site.urls),
     path("assess/", include(assessment.urls)),
-    path("", include(home.urls)),
+    path("", home.views.root),
+    path("/", include(home.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
