@@ -30,32 +30,24 @@
 		================================================== -->
 		<main class="site-content">
 		
-		<div class="section-content">
-			<div class="container">
-		
-				<div class="row">
-		
-					<!-- Content -->
-					<div class="content col-md-8">
-		
-						<!-- Single Post -->
-						<div class="post post--single-post">
-							<figure class="post__thumb">
-								<img src='https://placehold.co/600x400?text=Something+About+Learnosity+Hero+Image' alt="">
-							</figure>
-							<div class="post__body box">
-								<div class="post__content">
-									<p>Learnosity was founded in Dublin, Ireland in 2007 by CEO, Gavin Cooney and CTO, Mark Lynch. The company creates online education assessment and teaching software. Learnosity initially focussed primarily on audio assessment and mobile-assisted language learning, notably the FÓN project – a joint collaboration between The National Council for Curriculum and Assessment (NCCA) and the National Centre for Technology in Education (NCTE).</p>
+			<div class="section-content">
+			
+				<div class="container">
+			
+					<!-- Single Room - Content -->
+					<div class="single-room-content">
+						<div class="row">
+							<div class="col-md-8">
+								<!-- Meta -->
+								
+								<!-- Meta / End -->
+								<p>Learnosity was founded in Dublin, Ireland in 2007 by CEO, Gavin Cooney and CTO, Mark Lynch. The company creates online education assessment and teaching software. Learnosity initially focussed primarily on audio assessment and mobile-assisted language learning, notably the FÓN project – a joint collaboration between The National Council for Curriculum and Assessment (NCCA) and the National Centre for Technology in Education (NCTE).</p>
 
-										<p>In 2011, Learnosity pivoted from a primarily B2C model to a B2B model. The company currently operates a Platform as a Service (PaaS) business model where its products, including a suite of embeddable technology-enhanced items.</p>
-										
-										<p>In 2016, the company formed the MathQuill Alliance together with Desmos and Sapient Docs to support the continued development of MathQuill, a cross-browser, JavaScript library that displays, and allows users to easily edit and create, mathematical notation in web browsers</p>
-
-										<div id="learnosity_assess"></div>
-
-										<p>The Learnosity Assessment Engine instantly plugs the assessment excellence gap for learning platforms by enabling faster product launches, breakthrough capabilities, on-demand scaling, and continuous innovation to keep pace with a rapidly evolving market.</p>
-
-									<div class="pt-4"></div>
+								<p>In 2011, Learnosity pivoted from a primarily B2C model to a B2B model. The company currently operates a Platform as a Service (PaaS) business model where its products, including a suite of embeddable technology-enhanced items.</p>
+								
+								<p>In 2016, the company formed the MathQuill Alliance together with Desmos and Sapient Docs to support the continued development of MathQuill, a cross-browser, JavaScript library that displays, and allows users to easily edit and create, mathematical notation in web browsers</p>
+								<p>The Learnosity Assessment Engine instantly plugs the assessment excellence gap for learning platforms by enabling faster product launches, breakthrough capabilities, on-demand scaling, and continuous innovation to keep pace with a rapidly evolving market.</p>
+								<div class="pt-4"></div>
 									
 		
 									<h3>Mission and Values</h3>
@@ -68,41 +60,55 @@
 										<li>Success is better shared</li>
 
 									</ul>		
-									<figure class="wp-caption aligncenter">
-										<img src="assets/img/samples/post-content-img.jpg" alt="">
-										<figcaption class="wp-caption-text gold">The AWS of Assessment Delivery</figcaption>
-									</figure>
-		
-		
-								</div>
-								
+
+							</div>
+							<div class="col-md-4">
+								<h4>Quick History Test</h4>
+			
+								<!-- Room Details -->
+								<ul class="room-details">
+									<li class="room-details__item">
+										<span id="founders-question" class="learnosity-item" data-reference="LEAR_d3121897-a258-4c37-a62d-252b5b0f3e3a"></span>
+										<hr class="border border-danger border-2 opacity-85">
+									</li>
+									<li class="room-details__item">
+										<span id="founding-question" class="learnosity-item" data-reference="LEAR_55d9f7b5-6b92-4f4c-942e-0ce82571b2f3"></span>
+										<hr class="border border-info border-2 opacity-85">
+									</li>
+									<li class="room-details__item">
+										<span id="founding-question" class="learnosity-item" data-reference="LEAR_47693af5-1fa8-4d7a-a417-aefc7c8d20fa"></span>
+										<hr class="border border-warning border-2 opacity-85">
+									</li>
+									<li class="room-details__item">
+										<span id="founding-question" class="learnosity-item" data-reference="LEAR_2baba580-dbe7-43fa-b340-185ec1085dbf"></span>
+										<hr class="border border-primary border-2 opacity-85">
+									</li>
+								</ul>
+								<!-- Room Details / End -->
+			
+								<span class="learnosity-submit-button btn-success">Test Your Learnosity History</span>
+			
 							</div>
 						</div>
-
-					<div id="sidebar" class="sidebar col-md-4">
-		
-						
-		
+					</div>
+					<!-- Single Room - Content / End -->
+			
 				</div>
-		
+			
 			</div>
-		</div>
-		
-		</main>
-
-		
+			
 		
 		
 	</div>
-		{% include 'includes/scripts.html' %}
-		<script src="https://items.learnosity.com?latest-lts/"></script>
+	{% include 'includes/scripts.html' %}
+	<script src="https://items.learnosity.com?latest-lts/"></script>
 
-			<script>
-				var questionsApp = LearnosityItems.init( {{ generated_request|safe }});
-				console.log({{generated_request|safe}})
-			</script>
-	</body>
-	</html> 
+		<script>
+			var questionsApp = LearnosityItems.init( {{ generated_request|safe }});
+			console.log({{generated_request|safe}})
+		</script>
+</body>
+</html> 
 
 </body>
 </html>

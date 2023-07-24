@@ -23,14 +23,13 @@ port = 8000
 security = {
     "user_id": "abc",
     "consumer_key": "CGas8FYgMM4NdyXQ",
-
     # Change to the domain used in the browser, e.g. 127.0.0.1, learnosity.com
     "domain": host,
 }
 
 # Items API configuration parameters.
 items_request = {
-       # Unique student identifier, a UUID generated above.
+    # Unique student identifier, a UUID generated above.
     "user_id": user_id,
     # A reference of the Activity to retrieve from the Item bank, defining
     # which Items will be served in this assessment.
@@ -43,256 +42,211 @@ items_request = {
     "activity_id": "quickstart_examples_activity_001",
     # Selects a rendering mode, `assess` type is a "standalone" mode (loading a
     # complete assessment player for navigation, VS `inline`, for embedded).
-    "rendering_type": "assess",
+    "rendering_type": "inline",
     # Selects the context for the student response storage. `submit_practice`
     # mode means student response storage in the Learnosity cloud, for grading.
     "type": "submit_practice",
     # Human-friendly display name to be shown in reporting.
-    "name": "Items API Quickstart",
+    "name": "About Learnosity ",
+    "items": [
+        "LEAR_d3121897-a258-4c37-a62d-252b5b0f3e3a",
+        "LEAR_55d9f7b5-6b92-4f4c-942e-0ce82571b2f3",
+        "LEAR_47693af5-1fa8-4d7a-a417-aefc7c8d20fa",
+        "LEAR_2baba580-dbe7-43fa-b340-185ec1085dbf",
+
+    ],
     # Can be set to `initial, `resume` or `review`. Optional. Default = `initial`.
-    "state": "initial"
+    "state": "initial",
+    "config": {"questions_api_init_options": {"renderSubmitButton": True}},
 }
 # Questions API configuration parameters.
 questions_request = {
     "id": "f0001",
     "name": "Practice Question",
-    "questions":
-    {
+    "questions": {
         "response_id": "60005",
         "type": "mcq",
         "stimulus": "When was Learnosity Founded?",
         "feedback_attempts": 1,
         "instant_feedback": True,
         "multiple_responses": False,
-        "options": [{
-            "value": "2000",
-            "label": "2000"
-        }, {
-            "value": "2007",
-            "label": "2007"
-        }, {
-            "value": "1995",
-            "label": "1995"
-        }, {
-            "value": "2018",
-            "label": "2018"
-        }],
+        "options": [
+            {"value": "2000", "label": "2000"},
+            {"value": "2007", "label": "2007"},
+            {"value": "1995", "label": "1995"},
+            {"value": "2018", "label": "2018"},
+        ],
         "penalty_score": -1,
-        "ui_style": {
-            "type": "block"
-        },
+        "ui_style": {"type": "block"},
         "validation": {
             "scoring_type": "exactMatch",
-            "valid_response": {
-                "value": ["2007"]
-            },
-            "penalty": -1
-        }
-    }
+            "valid_response": {"value": ["2007"]},
+            "penalty": -1,
+        },
+    },
 }
 # Author API configuration parameters.
 # mode can be changed by item_list and item_edit
 author_request = {
-        "mode": "item_edit",
-        "reference": "a15ac409-f6d5-42de-a491-a1e4ab03c826",
-        "user": {
-            "id" : "brianmoser",
-            "firstname" : "Test",
-            "lastname" : "Test",
-            "email" : "test@test.com"
+    "mode": "item_edit",
+    "reference": "a15ac409-f6d5-42de-a491-a1e4ab03c826",
+    "user": {
+        "id": "brianmoser",
+        "firstname": "Test",
+        "lastname": "Test",
+        "email": "test@test.com",
+    },
+    "config": {
+        "global": {
+            "disable_onbeforeunload": True,
+            "hide_tags": [{"type": "internal_category_uuid"}],
         },
-        "config": {
-            "global": {
-                "disable_onbeforeunload": True,
-                "hide_tags":
-                [
-                  {
-                    "type": "internal_category_uuid"
-                  }
-                ]
-            },
-            "item_edit": {
-                "item": {
-                    "back": True,
-                    "columns": True,
-                    "answers": True,
-                    "scoring": True,
-                    "reference": {
-                        "edit": False,
-                        "show": False,
-                        "prefix": "LEAR_"
-                    },
-                    "save": True,
-                    "status": False,
-                    "dynamic_content": True,
-                    "shared_passage": True
-                },
-                "widget": {
-                    "delete": False,
-                    "edit": True
-                }
-            },
-            "item_list": {
-                "item": {
-                    "status": True,
-                    "url": "http://myApp.com/items/:reference/edit"
-                },
-                "toolbar": {
-                    "add": True,
-                    "browse": {
-                      "controls": [
-                        {
-                          "type": "hierarchy",
-                          "hierarchies": [
-                            {
-                              "reference": "CCSS_Math_Hierarchy",
-                              "label": "CCSS Math"
-                            },
-                            {
-                              "reference": "CCSS_ELA_Hierarchy",
-                              "label": "CCSS ELA"
-                            },
-                            {
-                              "reference": "Demo_Items_Hierarchy",
-                              "label": "Demo Items"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "tag",
-                          "tag": {
-                             "type": "Alignment",
-                             "label": "def456"
-                          }
-                        },
-                        {
-                          "type": "tag",
-                          "tag": {
-                             "type": "Course",
-                             "label": "commoncore"
-                          }
-                        }
-                      ]
-                    }
-                },
-                "filter": {
-                    "restricted": {
-                        "current_user": True,
-                        "tags": {
-                            "all": [
-                                {
-                                    "type": "Alignment",
-                                    "name": ["def456", "abc123"]
-                                },
-                                {
-                                    "type": "Course"
-                                }
-                            ],
-                            "either": [
-                                {
-                                    "type": "Grade",
-                                    "name": "4"
-                                },
-                                {
-                                    "type": "Grade",
-                                    "name": "5"
-                                },
-                                {
-                                    "type": "Subject",
-                                    "name": ["Math", "Science"]
-                                }
-                            ],
-                            "none": [
-                                {
-                                    "type": "Grade",
-                                    "name": "6"
-                                }
-                            ]
-                        }
-                    }
-                }
-            },
-            "dependencies": {
-                "question_editor_api": {
-                    "init_options": {}
-                },
-                "questions_api": {
-                    "init_options": {}
-                }
-            },
-            "widget_templates": {
+        "item_edit": {
+            "item": {
                 "back": True,
+                "columns": True,
+                "answers": True,
+                "scoring": True,
+                "reference": {"edit": False, "show": False, "prefix": "LEAR_"},
                 "save": True,
-                "widget_types": {
-                    "default": "questions",
-                    "show": True
+                "status": False,
+                "dynamic_content": True,
+                "shared_passage": True,
+            },
+            "widget": {"delete": False, "edit": True},
+        },
+        "item_list": {
+            "item": {"status": True, "url": "http://myApp.com/items/:reference/edit"},
+            "toolbar": {
+                "add": True,
+                "browse": {
+                    "controls": [
+                        {
+                            "type": "hierarchy",
+                            "hierarchies": [
+                                {
+                                    "reference": "CCSS_Math_Hierarchy",
+                                    "label": "CCSS Math",
+                                },
+                                {
+                                    "reference": "CCSS_ELA_Hierarchy",
+                                    "label": "CCSS ELA",
+                                },
+                                {
+                                    "reference": "Demo_Items_Hierarchy",
+                                    "label": "Demo Items",
+                                },
+                            ],
+                        },
+                        {
+                            "type": "tag",
+                            "tag": {"type": "Alignment", "label": "def456"},
+                        },
+                        {
+                            "type": "tag",
+                            "tag": {"type": "Course", "label": "commoncore"},
+                        },
+                    ]
+                },
+            },
+            "filter": {
+                "restricted": {
+                    "current_user": True,
+                    "tags": {
+                        "all": [
+                            {"type": "Alignment", "name": ["def456", "abc123"]},
+                            {"type": "Course"},
+                        ],
+                        "either": [
+                            {"type": "Grade", "name": "4"},
+                            {"type": "Grade", "name": "5"},
+                            {"type": "Subject", "name": ["Math", "Science"]},
+                        ],
+                        "none": [{"type": "Grade", "name": "6"}],
+                    },
                 }
             },
-            "container": {
-                "height": "auto",
-                "fixed_footer_height": 0,
-                "scroll_into_view_selector": "body"
-            },
-            "label_bundle": {
-                "backButton": "Zurück",
-                "loadingText": "Wird geladen",
-                "modalClose": "Schließen",
-                "saveButton": "Speichern",
-                "duplicateButton": "Duplikat",
-                "dateTimeLocale": "en-us",
-                "toolTipDateTimeSeparator": "um",
-                "toolTipDateFormat": "DD-MM-YYYY",
-                "toolTipTimeFormat": "HH:MM:SS",
-            }
         },
-    }
+        "dependencies": {
+            "question_editor_api": {"init_options": {}},
+            "questions_api": {"init_options": {}},
+        },
+        "widget_templates": {
+            "back": True,
+            "save": True,
+            "widget_types": {"default": "questions", "show": True},
+        },
+        "container": {
+            "height": "auto",
+            "fixed_footer_height": 0,
+            "scroll_into_view_selector": "body",
+        },
+        "label_bundle": {
+            "backButton": "Zurück",
+            "loadingText": "Wird geladen",
+            "modalClose": "Schließen",
+            "saveButton": "Speichern",
+            "duplicateButton": "Duplikat",
+            "dateTimeLocale": "en-us",
+            "toolTipDateTimeSeparator": "um",
+            "toolTipDateFormat": "DD-MM-YYYY",
+            "toolTipTimeFormat": "HH:MM:SS",
+        },
+    },
+}
 # Reports API configuration parameters.
 report_request = {
-    "reports" : [{
-        "id": "session-detail",
-        "type": "session-detail-by-item",
-        "user_id": "906d564c-39d4-44ba-8ddc-2d44066e2ba9",
-        "session_id": "906d564c-39d4-44ba-8ddc-2d44066e2ba9"
-    }]
+    "reports": [
+        {
+            "id": "session-detail",
+            "type": "session-detail-by-item",
+            "user_id": "906d564c-39d4-44ba-8ddc-2d44066e2ba9",
+            "session_id": "906d564c-39d4-44ba-8ddc-2d44066e2ba9",
+        }
+    ]
 }
 question_editor_request = {
-    "configuration" : {
-       "consumer_key": settings.CONSUMER_KEY,
+    "configuration": {
+        "consumer_key": settings.CONSUMER_KEY,
     },
     "widget_conversion": True,
-    "ui" : {
-        "search_field" : True,
+    "ui": {
+        "search_field": True,
     },
-    "layout":{
-        "global_template": "edit_preview",
-        "mode": "advanced"
-    }
+    "layout": {"global_template": "edit_preview", "mode": "advanced"},
 }
 
 # Set up Learnosity initialization data.
 initItems = Init(
-    "items", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
-    request = items_request
+    "items", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD", request=items_request
 )
 
 initQuestions = Init(
-    "questions", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
-    request = questions_request
+    "questions",
+    security,
+    "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
+    request=questions_request,
 )
 
 initAuthor = Init(
-    "author", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
-    request = author_request
+    "author",
+    security,
+    "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
+    request=author_request,
 )
 
 initReports = Init(
-    "reports", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
-    request = report_request
+    "reports",
+    security,
+    "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
+    request=report_request,
 )
 
 initQuestionEditor = Init(
-    "questions", security, "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
-    request = question_editor_request
+    "questions",
+    security,
+    "7203S2ESnznpp1svSe3hvByoSuIln8YabisNKpDD",
+    request=question_editor_request,
 )
 
 # Generated request(initOptions) w.r.t all apis
@@ -303,24 +257,24 @@ generated_request_Reports = initReports.generate()
 generated_request_QuestionEditor = initQuestionEditor.generate()
 
 ic(generated_request_Items)
+
+
 # - - - - - - Section 2: your web page configuration - - - - - -#
 # Set up the HTML page template, for serving to the built-in Python web server
 class LearnosityServer(BaseHTTPRequestHandler):
-
-    def createResponse(self,response):
-         # Send headers and data back to the client.
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            # Send the response to the client.
-            self.wfile.write(response.encode("utf-8"))
+    def createResponse(self, response):
+        # Send headers and data back to the client.
+        self.send_response(200)
+        self.send_header("Content-type", "text/html")
+        self.end_headers()
+        # Send the response to the client.
+        self.wfile.write(response.encode("utf-8"))
 
     def do_GET(self):
-
         if self.path.endswith("/"):
-
-        # Define the page HTML, as a Jinja template, with {{variables}} passed in.
-            template = Template("""<!DOCTYPE html>
+            # Define the page HTML, as a Jinja template, with {{variables}} passed in.
+            template = Template(
+                """<!DOCTYPE html>
             <html>
                 <head>
                     <style>
@@ -359,15 +313,17 @@ class LearnosityServer(BaseHTTPRequestHandler):
                     </table>
                 </body>
             </html>
-            """)
+            """
+            )
 
             # Render the page template and grab the variables needed.
-            response = template.render(name='Standalone API Examples')
+            response = template.render(name="Standalone API Examples")
             self.createResponse(response)
 
         if self.path.endswith("/itemsapi"):
-        # Define the page HTML, as a Jinja template, with {{variables}} passed in.
-            template = Template("""<!DOCTYPE html>
+            # Define the page HTML, as a Jinja template, with {{variables}} passed in.
+            template = Template(
+                """<!DOCTYPE html>
             <html>
                 <body>
                     <h1>{{ name }}</title></h1>
@@ -381,16 +337,21 @@ class LearnosityServer(BaseHTTPRequestHandler):
                     </script>
                 </body>
             </html>
-            """)
+            """
+            )
 
             # Render the page template and grab the variables needed.
-            response = template.render(name='Standalone Items API Example', generated_request=generated_request_Items)
+            response = template.render(
+                name="Standalone Items API Example",
+                generated_request=generated_request_Items,
+            )
 
             self.createResponse(response)
 
         if self.path.endswith("/questionsapi"):
             # Define the page HTML, as a Jinja template, with {{variables}} passed in.
-             template = Template("""<!DOCTYPE html>
+            template = Template(
+                """<!DOCTYPE html>
                                 <html>
                                     <body>
                                         <h1>{{ name }}</title></h1>
@@ -404,14 +365,19 @@ class LearnosityServer(BaseHTTPRequestHandler):
                                         </script>
                                     </body>
                                 </html>
-                                """)
+                                """
+            )
 
-             response = template.render(name='Standalone Questions API Example', generated_request=generated_request_Questions)
-             self.createResponse(response)
+            response = template.render(
+                name="Standalone Questions API Example",
+                generated_request=generated_request_Questions,
+            )
+            self.createResponse(response)
 
         if self.path.endswith("/authorapi"):
             # Define the page HTML, as a Jinja template, with {{variables}} passed in.
-             template = Template("""<!DOCTYPE html>
+            template = Template(
+                """<!DOCTYPE html>
                                 <html>
                                     <body>
                                         <h1>{{ name }}</title></h1>
@@ -433,14 +399,19 @@ class LearnosityServer(BaseHTTPRequestHandler):
                                         </script>
                                     </body>
                                 </html>
-                                """)
+                                """
+            )
 
-             response = template.render(name='Standalone Author API Example', generated_request=generated_request_Author)
-             self.createResponse(response)
+            response = template.render(
+                name="Standalone Author API Example",
+                generated_request=generated_request_Author,
+            )
+            self.createResponse(response)
 
         if self.path.endswith("/reportsapi"):
             # Define the page HTML, as a Jinja template, with {{variables}} passed in.
-             template = Template("""<!DOCTYPE html>
+            template = Template(
+                """<!DOCTYPE html>
                                 <html>
                                     <body>
                                         <h1>{{ name }}</title></h1>
@@ -462,14 +433,19 @@ class LearnosityServer(BaseHTTPRequestHandler):
                                         </script>
                                     </body>
                                 </html>
-                                """)
+                                """
+            )
 
-             response = template.render(name='Standalone Reports API Example', generated_request=generated_request_Reports)
-             self.createResponse(response)
+            response = template.render(
+                name="Standalone Reports API Example",
+                generated_request=generated_request_Reports,
+            )
+            self.createResponse(response)
 
         if self.path.endswith("/questioneditorapi"):
             # Define the page HTML, as a Jinja template, with {{variables}} passed in.
-             template = Template("""<!DOCTYPE html>
+            template = Template(
+                """<!DOCTYPE html>
                                 <html>
                                     <body>
                                         <h1>{{ name }}</title></h1>
@@ -495,10 +471,15 @@ class LearnosityServer(BaseHTTPRequestHandler):
                                         </script>
                                     </body>
                                 </html>
-                                """)
+                                """
+            )
 
-             response = template.render(name='Standalone Question Editor API Example', generated_request=generated_request_QuestionEditor)
-             self.createResponse(response)
+            response = template.render(
+                name="Standalone Question Editor API Example",
+                generated_request=generated_request_QuestionEditor,
+            )
+            self.createResponse(response)
+
 
 def main():
     web_server = HTTPServer((host, port), LearnosityServer)
@@ -507,6 +488,7 @@ def main():
         web_server.serve_forever()
     except KeyboardInterrupt:
         web_server.server_close()
+
 
 # Run the web server.
 if __name__ == "__main__":

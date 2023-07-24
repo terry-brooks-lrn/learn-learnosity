@@ -3636,7 +3636,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 .main-slider {
   overflow: hidden;
   position: relative;
-  z-index:5 ;
+  z-index: 1;
 }
 
 .main-slider__item {
@@ -4395,9 +4395,6 @@ img {
   margin-left: 0.5rem;
 }
 
-nav {
-  z-index: 20;
-}
 @media (min-width: 768px) {
   .nav-secondary > li.nav-secondary__search {
     margin-left: 0;
@@ -4575,7 +4572,9 @@ nav {
           align-items: center;
   /* 1st Level */
 }
-
+nav {
+  z-index: 5;
+}
 .main-nav__list > li {
   position: relative;
   padding: 0;
@@ -8221,5 +8220,14 @@ Images
 .room__badge--inverse.room__badge--secondary::before {
   border-left-color: #404040;
 }
+.lrn_response {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
 
+}
+.lrn_stimulus{
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+
+}
 /*# sourceMappingURL=maps/style.css.map */
