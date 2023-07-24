@@ -3636,6 +3636,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 .main-slider {
   overflow: hidden;
   position: relative;
+  z-index:5 ;
 }
 
 .main-slider__item {
@@ -4394,6 +4395,9 @@ img {
   margin-left: 0.5rem;
 }
 
+nav {
+  z-index: 20;
+}
 @media (min-width: 768px) {
   .nav-secondary > li.nav-secondary__search {
     margin-left: 0;
